@@ -1,0 +1,118 @@
+{
+    "courses": [
+        {
+            "id": "crs_0x7A",
+            "slug": "javascript-v8-engines",
+            "title": "Modern JavaScript & V8 Internals",
+            "category": "Web Engineering",
+            "instructor": "Alex Rivers",
+            "difficulty": "Beginner",
+            "duration": "20 Hours",
+            "stack": [
+                "JavaScript",
+                "ESNext",
+                "Node.js"
+            ],
+            "price": 49,
+            "rating": 4.8,
+            "students_enrolled": 8500,
+            "status": "Stable",
+            "description": "Go beyond syntax. Understand execution contexts, closures, and how the V8 engine optimizes your code."
+        },
+        {
+            "id": "crs_0x8B",
+            "slug": "react-architect-patterns",
+            "title": "React JS: Component Architecture",
+            "category": "Frontend Dev",
+            "instructor": "Sarah Chen",
+            "difficulty": "Intermediate",
+            "duration": "24 Hours",
+            "stack": [
+                "React",
+                "Hooks",
+                "Context API"
+            ],
+            "price": 79,
+            "rating": 4.9,
+            "students_enrolled": 12000,
+            "status": "Stable",
+            "description": "Master declarative UI patterns, custom hooks, and state management for scalable web applications."
+        },
+        {
+            "id": "crs_0x9C",
+            "slug": "python-scripting-automation",
+            "title": "Python for Systems Automation",
+            "category": "Scripting",
+            "instructor": "Michael Frost",
+            "difficulty": "Beginner",
+            "duration": "15 Hours",
+            "stack": [
+                "Python",
+                "OS Lib",
+                "Requests"
+            ],
+            "price": 39,
+            "rating": 4.7,
+            "students_enrolled": 9200,
+            "status": "Stable",
+            "description": "Harness Python to automate OS tasks, parse complex data, and build robust CLI tools."
+        },
+        {
+            "id": "crs_0x10D",
+            "slug": "java-enterprise-core",
+            "title": "Java: Enterprise Core Foundations",
+            "category": "Backend Dev",
+            "instructor": "David Wu",
+            "difficulty": "Intermediate",
+            "duration": "35 Hours",
+            "stack": [
+                "Java",
+                "Spring Boot",
+                "JVM"
+            ],
+            "price": 99,
+            "rating": 4.6,
+            "students_enrolled": 4500,
+            "status": "Stable",
+            "description": "Deep dive into OOP principles, multithreading, and the JVM lifecycle for high-traffic backend systems."
+        },
+        {
+            "id": "crs_0x11E",
+            "slug": "html-css-layout-engines",
+            "title": "HTML5 & CSS3: Design Systems",
+            "category": "Design Ops",
+            "instructor": "Emma Vance",
+            "difficulty": "Beginner",
+            "duration": "12 Hours",
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "Flexbox/Grid"
+            ],
+            "price": 29,
+            "rating": 4.8,
+            "students_enrolled": 15000,
+            "status": "Stable",
+            "description": "The fundamentals of web rendering. Build responsive layouts and design systems from a blank terminal."
+        },
+        {
+            "id": "crs_0x12F",
+            "slug": "sql-database-sharding",
+            "title": "SQL Mastery & Schema Design",
+            "category": "Database Ops",
+            "instructor": "Marcus Stone",
+            "difficulty": "Intermediate",
+            "duration": "18 Hours",
+            "stack": [
+                "PostgreSQL",
+                "MySQL",
+                "Optimization"
+            ],
+            "price": 59,
+            "rating": 4.9,
+            "students_enrolled": 6700,
+            "status": "New",
+            "description": "Write efficient queries, design normalized relational schemas, and understand indexing at scale."
+        }
+    ]
+}
