@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { Lock, Mail, Terminal, ChevronRight } from "lucide-react";
+import Link from 'next/link';
 
 export default function SimpleLogin() {
     return (
@@ -50,6 +51,13 @@ export default function SimpleLogin() {
                     <button className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-transform active:scale-95">
                         Sign in with Google <ChevronRight size={16} />
                     </button>
+                    <button className="text-zinc-600 font-mono text-[10px] hover:text-emerald-500 transition-colors uppercase tracking-tight">
+                        New user?
+                        <Link href="/auth/register">
+                            Sign_up
+                        </Link>
+                    </button>
+
                 </form>
 
                 <div className="mt-8 pt-6 border-t border-zinc-900 text-center">

@@ -1,6 +1,66 @@
 {
     "courses": [
         {
+            "id": "crs_0x01",
+            "slug": "high-performance-react",
+            "title": "High-Performance React",
+            "category": "Web Engineering",
+            "instructor": "Internal Staff",
+            "difficulty": "Advanced",
+            "duration": "25 Hours",
+            "stack": [
+                "Next.js",
+                "V8 Engine",
+                "React"
+            ],
+            "price": 89,
+            "rating": 4.9,
+            "students_enrolled": 1200,
+            "status": "Stable",
+            "description": "Master the art of building lightning-fast web applications with Next.js and deep-dive into the V8 engine internals.",
+            "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800"
+        },
+        {
+            "id": "crs_0x02",
+            "slug": "ios-swift-internals",
+            "title": "iOS Swift Internals",
+            "category": "Mobile",
+            "instructor": "Internal Staff",
+            "difficulty": "Intermediate",
+            "duration": "30 Hours",
+            "stack": [
+                "LLVM",
+                "SwiftUI",
+                "Swift"
+            ],
+            "price": 129,
+            "rating": 4.8,
+            "students_enrolled": 850,
+            "status": "Stable",
+            "description": "Go beyond the basics of SwiftUI and explore how LLVM compiles your code for maximum mobile performance.",
+            "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800"
+        },
+        {
+            "id": "crs_0x03",
+            "slug": "backend-scalability",
+            "title": "Backend Scalability",
+            "category": "Systems",
+            "instructor": "Internal Staff",
+            "difficulty": "Expert",
+            "duration": "40 Hours",
+            "stack": [
+                "Go",
+                "Distributed",
+                "Microservices"
+            ],
+            "price": 110,
+            "rating": 5.0,
+            "students_enrolled": 500,
+            "status": "Stable",
+            "description": "Learn to build distributed systems that handle millions of requests using Go and modern architectural patterns.",
+            "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=800"
+        },
+        {
             "id": "crs_0x7A",
             "slug": "javascript-v8-engines",
             "title": "Modern JavaScript & V8 Internals",
@@ -17,7 +77,8 @@
             "rating": 4.8,
             "students_enrolled": 8500,
             "status": "Stable",
-            "description": "Go beyond syntax. Understand execution contexts, closures, and how the V8 engine optimizes your code."
+            "description": "Go beyond syntax. Understand execution contexts, closures, and how the V8 engine optimizes your code.",
+            "image": "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?q=80&w=800"
         },
         {
             "id": "crs_0x8B",
@@ -36,7 +97,8 @@
             "rating": 4.9,
             "students_enrolled": 12000,
             "status": "Stable",
-            "description": "Master declarative UI patterns, custom hooks, and state management for scalable web applications."
+            "description": "Master declarative UI patterns, custom hooks, and state management for scalable web applications.",
+            "image": "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?q=80&w=800"
         },
         {
             "id": "crs_0x9C",
@@ -55,7 +117,8 @@
             "rating": 4.7,
             "students_enrolled": 9200,
             "status": "Stable",
-            "description": "Harness Python to automate OS tasks, parse complex data, and build robust CLI tools."
+            "description": "Harness Python to automate OS tasks, parse complex data, and build robust CLI tools.",
+            "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800"
         },
         {
             "id": "crs_0x10D",
@@ -74,7 +137,8 @@
             "rating": 4.6,
             "students_enrolled": 4500,
             "status": "Stable",
-            "description": "Deep dive into OOP principles, multithreading, and the JVM lifecycle for high-traffic backend systems."
+            "description": "Deep dive into OOP principles, multithreading, and the JVM lifecycle for high-traffic backend systems.",
+            "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800"
         },
         {
             "id": "crs_0x11E",
@@ -82,6 +146,7 @@
             "title": "HTML5 & CSS3: Design Systems",
             "category": "Design Ops",
             "instructor": "Emma Vance",
+            "difficulty": "Beginner",
             "difficulty": "Beginner",
             "duration": "12 Hours",
             "stack": [
@@ -93,7 +158,8 @@
             "rating": 4.8,
             "students_enrolled": 15000,
             "status": "Stable",
-            "description": "The fundamentals of web rendering. Build responsive layouts and design systems from a blank terminal."
+            "description": "The fundamentals of web rendering. Build responsive layouts and design systems from a blank terminal.",
+            "image": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?q=80&w=800"
         },
         {
             "id": "crs_0x12F",
@@ -112,7 +178,8 @@
             "rating": 4.9,
             "students_enrolled": 6700,
             "status": "New",
-            "description": "Write efficient queries, design normalized relational schemas, and understand indexing at scale."
+            "description": "Write efficient queries, design normalized relational schemas, and understand indexing at scale.",
+            "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=800"
         }
     ]
 }

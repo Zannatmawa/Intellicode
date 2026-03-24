@@ -1,18 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { Search, Filter, Code, Terminal, Clock, Users, ChevronRight, Cpu } from "lucide-react";
+import { Search, Filter, Code, Terminal, Clock, Users, ChevronRight, Cpu, ArrowUpRight } from "lucide-react";
 import axios from 'axios';
 import Link from 'next/link';
-
-// Assuming the JSON data from the previous step is imported here
-// const coursesData = [
-//     { id: "crs_0x1A", title: "Low-Level Rust & Memory Safety", category: "Systems Programming", difficulty: "Advanced", duration: "42 Hours", stack: ["Rust", "Wasm"], price: 199, status: "Stable", description: "Master ownership and borrowing by building a custom memory allocator." },
-//     { id: "crs_0x2B", title: "Distributed Systems with Go", category: "Cloud Architecture", difficulty: "Expert", duration: "38 Hours", stack: ["Go", "gRPC"], price: 249, status: "Beta", description: "Architecting fault-tolerant microservices using Raft consensus." },
-//     { id: "crs_0x4D", title: "Linux Kernel Hacking", category: "Cybersecurity", difficulty: "Expert", duration: "60 Hours", stack: ["C", "Assembly"], price: 299, status: "Stable", description: "Writing loadable kernel modules and understanding process scheduling." },
-//     // ... add more from the JSON
-// ];
-
-
 
 
 
@@ -76,7 +66,7 @@ export default function CoursesPage() {
                             <Filter size={14} className="text-emerald-500" /> Filter_By
                         </h3>
                         <div className="space-y-2">
-                            {['All', 'Systems Programming', 'Cloud Architecture', 'Cybersecurity', 'AI Infrastructure'].map((cat) => (
+                            {['All', 'FrontEnd', 'BackEnd', 'Cybersecurity', 'AI Infrastructure'].map((cat) => (
                                 <button
                                     key={cat}
                                     onClick={() => setFilter(cat)}
@@ -91,53 +81,67 @@ export default function CoursesPage() {
 
                 {/* Main Course Grid */}
                 <main className="flex-1">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-900 border border-zinc-900">
+                    <div className="flex flex-col gap-16">
                         {courses.map((course) => (
-                            <div key={course.id} className="bg-[#09090B] p-8 group hover:bg-zinc-900/40 transition-all border border-transparent hover:border-emerald-500/30">
-                                <div className="flex justify-between items-start mb-6">
-                                    <div className="p-3 bg-zinc-900 text-emerald-500 border border-zinc-800">
-                                        <Cpu size={24} />
-                                    </div>
-                                    <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest bg-zinc-900 px-2 py-1">
-                                        {course.id}
+                            <div
+                                key={course.id}
+                                className="group flex flex-col lg:flex-row items-center gap-10 transition-all"
+                            >
+                                {/* LEFT: IMAGE SECTION (Smaller & Sleeker) */}
+                                <div className="w-full lg:w-[45%] relative aspect-[16/10] rounded-xl overflow-hidden bg-emerald-950 border border-emerald-500/20">
+                                    <div className="absolute inset-0 bg-emerald-950/40 group-hover:bg-transparent transition-colors z-10" />
+                                    <img
+                                        src={course.image}
+                                        alt={course.title}
+                                        className="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700"
+                                    />
+                                    <div className="absolute inset-0 z-20 flex flex-col justify-between p-6">
+                                        <div className="bg-black/60 backdrop-blur-md w-fit p-2.5 rounded-lg border border-white/10 text-emerald-400">
+                                            {course.icon}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold mb-3 text-white">{course.title}</h3>
+                                            <button className="flex items-center gap-2 bg-emerald-500 text-black px-4 py-1.5 rounded text-xs font-bold hover:bg-emerald-400 transition-colors">
+                                                {/* <PlayCircle size={14} /> */}
+                                                LET'S CODE
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <h2 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-                                    {course.title}
-                                </h2>
+                                {/* RIGHT: DETAILS SECTION (Refined Typography) */}
+                                <div className="w-full lg:w-[55%]">
+                                    <h2 className="text-2xl font-bold mb-4 leading-snug text-white">
+                                        Kickstart your journey in <br />
+                                        <span className="text-emerald-500">{course.title}</span>
+                                    </h2>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-lg">
+                                        {course.description} Built for developers who want to master the architecture behind the code.
+                                    </p>
 
-                                <p className="text-sm text-zinc-500 mb-6 line-clamp-2 font-medium">
-                                    {course.description}
-                                </p>
+                                    <div className="flex flex-wrap gap-10 mb-8">
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-[9px] font-mono text-emerald-500/50 uppercase font-bold tracking-widest">Level</span>
+                                            <span className="text-sm font-semibold text-slate-200">{course.status}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-[9px] font-mono text-emerald-500/50 uppercase font-bold tracking-widest">Tuition</span>
+                                            <span className="text-sm font-bold text-white">{course.price}</span>
+                                        </div>
+                                        <div className="flex flex-col gap-1">
+                                            <span className="text-[9px] font-mono text-emerald-500/50 uppercase font-bold tracking-widest">Duration</span>
+                                            <span className="text-sm font-bold text-white">{course.duration}</span>
+                                        </div>
+                                    </div>
 
-                                <div className="flex flex-wrap gap-2 mb-8">
-                                    {course.stack.map(tech => (
-                                        <span key={tech} className="text-[10px] font-mono bg-zinc-900 border border-zinc-800 px-2 py-0.5 text-zinc-400">
-                                            #{tech}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div className="flex items-center justify-between pt-6 border-t border-zinc-900 mt-auto">
                                     <div className="flex gap-4">
-                                        <div className="flex items-center gap-1 text-[10px] font-mono">
-                                            <Clock size={12} className="text-emerald-500" /> {course.duration}
-                                        </div>
-                                        <div className="flex items-center gap-1 text-[10px] font-mono">
-                                            <Users size={12} className="text-emerald-500" /> {course.difficulty}
-                                        </div>
-                                    </div>
-                                    <div className="text-white font-black font-mono">
-                                        ${course.price}
+                                        <Link href={`/course-details/${course.id}`}>
+                                            <button className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-6 py-2.5 rounded text-xs font-bold flex items-center gap-2 hover:bg-emerald-500 hover:text-black transition-all">
+                                                EXPLORE MODULE <ArrowUpRight size={14} />
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
-                                <Link href={`/course-details/${course.id}`}>
-                                    <button className="w-full mt-6 py-3 bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold text-xs uppercase tracking-widest group-hover:bg-emerald-500 group-hover:text-black transition-all flex items-center justify-center gap-2">
-                                        Get Details <ChevronRight size={14} />
-                                    </button>
-                                </Link>
-
                             </div>
                         ))}
                     </div>

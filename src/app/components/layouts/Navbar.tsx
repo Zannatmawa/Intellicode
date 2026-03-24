@@ -9,7 +9,7 @@ export default function Navbar() {
         <li><Link href="/explore" className="text-zinc-300 hover:text-emerald-400">Courses</Link></li>
         <li><Link href="/about" className="text-zinc-300 hover:text-emerald-400">About</Link></li>
         <li><Link href="/blog" className="text-zinc-300 hover:text-emerald-400">Blog</Link></li>
-        <li><Link href="/dashboard" className="text-zinc-300 hover:text-emerald-400 text-emerald-500 font-bold">Dashboard</Link></li>
+        <li><Link href="/dashboard" className="text-zinc-300 hover:text-emerald-400 text-emerald-400 font-bold">Dashboard</Link></li>
     </>
     return (
         <nav className="sticky top-0 z-[100] w-full border-b border-zinc-800 bg-[#09090B]/80 backdrop-blur-md">
@@ -18,7 +18,7 @@ export default function Navbar() {
                 {/* Navbar Start: Logo & Mobile Menu */}
                 <div className="flex items-center gap-4">
                     <div className="dropdown lg:hidden">
-                        <label tabIndex={0} className="text-zinc-400 hover:text-emerald-500 transition-colors cursor-pointer">
+                        <label tabIndex={0} className="text-zinc-400 hover:text-emerald-400 transition-colors cursor-pointer">
                             <Menu size={24} />
                         </label>
                         <ul
@@ -54,7 +54,7 @@ export default function Navbar() {
                                 >
                                     {link.name}
                                     {/* Hover Underline effect */}
-                                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-emerald-500 transition-all duration-300 group-hover:w-full" />
+                                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-emerald-400 transition-all duration-300 group-hover:w-full" />
                                 </Link>
                             </li>
                         ))}

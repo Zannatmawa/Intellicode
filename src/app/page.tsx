@@ -1,11 +1,11 @@
 // import Image from "next/image";
 import { FAQAndNewsletter } from "./components/home/Faq";
-import FeaturesSection from "./components/home/Features";
 import HeroSection from "./components/home/HeroSection";
+import CourseSection from "./components/home/OurCourses";
+import MissionSection from "./components/home/OurMission";
 import ServicesSection from "./components/home/Services";
-import { StatsAndPopular } from "./components/home/Stats";
-import { TestimonialsSection } from "./components/home/Testimonials";
-import Navbar from "./components/layouts/Navbar";
+import GlassStatsBar from "./components/home/Stats";
+import SuccessSection from "./components/home/SuccessStory";
 
 export default function Home() {
   return (
@@ -14,21 +14,23 @@ export default function Home() {
         <HeroSection />
       </section>
       <section>
+        <GlassStatsBar />
+      </section>
+      <section>
+        <CourseSection />
+      </section>
+      <section>
+        <SuccessSection />
+      </section>
+      <section>
+        <MissionSection />
+      </section>
+      <section>
         <ServicesSection />
-      </section>
-      <section>
-        <FeaturesSection />
-      </section>
-      <section>
-        <StatsAndPopular />
-      </section>
-      <section>
-        <TestimonialsSection />
       </section>
       <section>
         <FAQAndNewsletter />
       </section>
-
     </div>
   );
 }
