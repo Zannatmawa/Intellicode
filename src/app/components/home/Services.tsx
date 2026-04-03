@@ -96,7 +96,7 @@ export const ServicesSection = () => {
                             {/* Icon & Title */}
                             <div className="flex items-start gap-4 mb-4">
                                 <div className="p-3 bg-zinc-800/50 text-emerald-500 group-hover:scale-110 transition-transform duration-300">
-                                    {React.cloneElement(service.icon as React.ReactElement, { size: 24, strokeWidth: 1.5 })}
+                                    {/* {React.cloneElement(service.icon as React.ReactElement, { size: 24, strokeWidth: 1.5 })} */}
                                 </div>
                                 <h3 className="text-lg font-bold text-zinc-100 mt-2">
                                     {service.title}
