@@ -89,7 +89,7 @@ export const HeroSection = () => {
                             </div>
                             <div className="flex gap-4">
                                 <span className="text-emerald-200 select-none">7</span>
-                                <span className="pl-4 italic text-slate-400">  // Deploying to Global Infrastructure...</span>
+                                <span className="pl-4 italic text-slate-400">  Deploying to Global Infrastructure...</span>
                             </div>
                             <div className="flex gap-4">
                                 <span className="text-emerald-200 select-none">8</span>
