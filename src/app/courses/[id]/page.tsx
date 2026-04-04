@@ -1,10 +1,12 @@
-// import { getCourseById } from "@/app/actions/server/product";
-// import { getSingleCourse } from "@/actions/server/product"
+
 
 import { getSingleCourse } from "@/actions/server/product";
 import Image from "next/image";
+type CoursePageProps = {
+    params: { id: string };
+};
 
-const CourseDetailsPage = async ({ params }) => {
+const CourseDetailsPage = async ({ params }: CoursePageProps) => {
     const { id } = await params;
     const course = await getSingleCourse(id);
 

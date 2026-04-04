@@ -1,11 +1,26 @@
 "use client";
-
+type Course = {
+    _id: string;        // frontend uses `id`
+    title: string;
+    image: string;
+    price: number;
+    level?: string;
+    description?: string;
+    discount?: number;
+    ratings?: number;
+    reviews?: number;
+    sold?: number;
+};
 import Image from "next/image";
 import Link from "next/link";
 import { PlayCircle, ArrowRight } from "lucide-react";
 import CardBtn from "../buttons/CardBtn";
 
-const CourseCard = ({ course }) => {
+type Props = {
+    course: Course;
+};
+
+const CourseCard: React.FC<Props> = ({ course }) => {
     const {
         _id,
         title,
@@ -72,7 +87,7 @@ const CourseCard = ({ course }) => {
                         href={`/courses/${_id}`}
                         className="w-full text-center border border-gray-700 text-gray-300 py-2 rounded-sm text-xs font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 uppercase tracking-widest"
                     >
-                        View Docs <ArrowRight size={14} />
+                        EXPLORE MODULE <ArrowRight size={14} />
                     </Link>
                 </div>
             </div>

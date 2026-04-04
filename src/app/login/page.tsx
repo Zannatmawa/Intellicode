@@ -53,7 +53,7 @@ export default function SimpleLogin() {
                     </button>
                     <button className="text-zinc-600 font-mono text-[10px] hover:text-emerald-500 transition-colors uppercase tracking-tight">
                         New user?
-                        <Link href="/auth/register">
+                        <Link href="/register">
                             Sign_up
                         </Link>
                     </button>

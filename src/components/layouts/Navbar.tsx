@@ -66,7 +66,7 @@ export default function Navbar() {
                 {/* Navbar End: Auth Actions */}
                 <div className="flex items-center gap-3">
                     <Link
-                        href="/auth/login"
+                        href="/login"
                         className="hidden sm:flex text-sm font-mono text-zinc-500 hover:text-zinc-200 transition-colors"
                     >
                         [ login ]

@@ -3,35 +3,37 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { User, Mail, Lock, ChevronRight } from "lucide-react";
-import { signIn } from "next-auth/react"; // 1. Import signIn
+// import { signIn } from "next-auth/react"; // 1. Import signIn
 import { useRouter } from "next/navigation"; // 2. Import router for redirect
+import { postUser } from '@/actions/server/auth';
 
 export default function SimpleRegister() {
     const [loading, setLoading] = useState(false);
     const router = useRouter()
+
     const [form, setForm] = useState({
         name: "",
         email: "",
         password: ""
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
-    }
-    const handleRegister = async (e) => {
+    };
+    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const result = await postUser(form);
-        if (result.acknowledged) {
-            alert("successful,please login");
-            router.push("/login")
+        if (result?.acknowledged) {
+            alert("successful, please login");
+            router.push("/login");
+            console.log("Registering with:", form);
         }
-        console.log("Registering with:", form);
     };
 
-    const handleGoogleLogin = () => {
-        // Logic for Google OAuth goes here
-        console.log("Redirecting to Google...");
-    };
+    // const handleGoogleLogin = () => {
+    //     // Logic for Google OAuth goes here
+    //     console.log("Redirecting to Google...");
+    // };
 
     return (
         <div className="min-h-screen bg-[#09090B] flex items-center justify-center p-4">
@@ -50,6 +52,7 @@ export default function SimpleRegister() {
                             type="text"
                             placeholder="FULL_NAME"
                             required
+                            name="name"
                             value={form.name}
                             onChange={handleChange}
                             className="w-full bg-black border border-zinc-800 p-3 pl-10 text-emerald-500 focus:outline-none focus:border-emerald-500 transition-colors"
@@ -62,6 +65,7 @@ export default function SimpleRegister() {
                             type="email"
                             placeholder="EMAIL_ADDRESS"
                             required
+                            name="email"
                             value={form.email}
                             onChange={handleChange}
                             className="w-full bg-black border border-zinc-800 p-3 pl-10 text-emerald-500 focus:outline-none focus:border-emerald-500 transition-colors"
@@ -74,6 +78,7 @@ export default function SimpleRegister() {
                             type="password"
                             placeholder="CREATE_PASSWORD"
                             required
+                            name="password"
                             value={form.password}
                             onChange={handleChange}
                             className="w-full bg-black border border-zinc-800 p-3 pl-10 text-emerald-500 focus:outline-none focus:border-emerald-500 transition-colors"
