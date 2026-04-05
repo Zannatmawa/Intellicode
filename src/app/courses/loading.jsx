@@ -1,4 +1,4 @@
-import { CourseSkeleton } from '@/components/Skeleton';
+import { CourseSkeleton } from '../../components/Skeleton';
 import React from 'react';
 
 const Loading = () => {

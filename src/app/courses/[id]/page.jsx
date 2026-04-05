@@ -1,6 +1,6 @@
 
 
-import { getSingleCourse } from "@/actions/server/product";
+import { getSingleCourse } from "../../../actions/server/product";
 import Image from "next/image";
 type CoursePageProps = {
     params: { id: string };

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { Menu, X, Terminal } from "lucide-react"; // Using Lucide for the mobile toggle
+import AuthBtn from "../buttons/AuthBtn";
 
 export default function Navbar() {
     const links = <>
@@ -65,12 +66,7 @@ export default function Navbar() {
 
                 {/* Navbar End: Auth Actions */}
                 <div className="flex items-center gap-3">
-                    <Link
-                        href="/login"
-                        className="hidden sm:flex text-sm font-mono text-zinc-500 hover:text-zinc-200 transition-colors"
-                    >
-                        [ login ]
-                    </Link>
+                    <AuthBtn />
                     <Link
                         href="/auth/signup"
                         className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2 rounded-md text-sm font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center gap-2"

@@ -1,9 +1,20 @@
 "use server";
+type UserPayload = {
+    name: string;
+    email: string;
+    password: string;
+};
+type LoginPayload = {
+    email: string;
+    password: string;
+};
 
-import { collections, dbConnect } from "@/lib/dbConnect";
+
+
+import { collections, dbConnect } from "../../lib/dbConnect";
 import bcrypt from "bcryptjs";
 
-export const postUser = async (payload) => {
+export const postUser = async (payload: UserPayload) => {
     try {
         const { name, email, password } = payload;
 
@@ -11,7 +22,6 @@ export const postUser = async (payload) => {
             return { error: "Missing fields" };
         }
 
-        // ✅ Get collection directly
         const usersCollection = await dbConnect(collections.USERS);
 
         const existingUser = await usersCollection.findOne({ email });
@@ -39,7 +49,31 @@ export const postUser = async (payload) => {
         };
 
     } catch (error) {
-        console.error(error);
-        return { error: error.message };
+        if (error instanceof Error) {
+            return { error: error.message };
+        } else {
+            return { error: "Unknown error occurred" };
+        }
     }
 };
+
+export const loginUser = async (payload: LoginPayload) => {
+    const { email, password } = payload;
+    if (!email || !password) return null;
+
+
+    const usersCollection = await dbConnect(collections.USERS);
+
+    const user = await usersCollection.findOne({ email });
+
+    if (!user) return null;
+
+    const isPasswordMatched = await bcrypt.compare(password, user.password);
+    if (isPasswordMatched) {
+        return user;
+    }
+    else {
+        return null;
+    }
+}
+

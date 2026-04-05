@@ -9,7 +9,7 @@ type Course = {
     category?: string;
     tags?: string[];
 };
-import { collections, dbConnect } from '@/lib/dbConnect';
+import { collections, dbConnect } from '../../lib/dbConnect';
 // import { collections, dbConnect } from '@/app/lib/db';
 import { ObjectId } from 'mongodb';
 

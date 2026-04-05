@@ -1,5 +1,5 @@
 // import courses from "../../data/data.json"
-import { getSingleCourse, getProducts } from "@/actions/server/product"
+import { getSingleCourse, getProducts } from "../../actions/server/product"
 import CourseCard from "../cards/CourseCard"
 
 const OurCourses = async () => {

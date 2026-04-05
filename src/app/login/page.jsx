@@ -1,9 +1,37 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { Lock, Mail, Terminal, ChevronRight } from "lucide-react";
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
 
 export default function SimpleLogin() {
+    const router = useRouter()
+    const [form, setForm] = useState({
+        email: "",
+        password: ""
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const result = await signIn('credentials', {
+            email: form.email,
+            password: form.password,
+            redirect: false
+        });
+        if (!result?.error) {
+            Swal.fire("error", "Email or password not matched", "error")
+        }
+        else {
+            Swal.fire("Success", "Welcome to intellicode")
+            router.push("/")
+        }
+    }
     return (
         <div className="min-h-screen bg-[#09090B] flex items-center justify-center p-4">
             {/* Background Glow */}
@@ -20,7 +48,7 @@ export default function SimpleLogin() {
                     </h1>
                 </div>
 
-                <form className="space-y-5">
+                <form onSubmit={handleLogin} className="space-y-5">
                     {/* Email */}
                     <div className="space-y-1">
                         <div className="relative">
@@ -28,6 +56,8 @@ export default function SimpleLogin() {
                             <input
                                 type="email"
                                 placeholder="USER_ID"
+                                name='email'
+                                onChange={handleChange}
                                 className="w-full bg-black border border-zinc-800 p-3 pl-10 text-emerald-500 font-mono text-xs focus:outline-none focus:border-emerald-500 transition-all"
                             />
                         </div>
@@ -39,6 +69,8 @@ export default function SimpleLogin() {
                             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-700" size={16} />
                             <input
                                 type="password"
+                                name='password'
+                                onChange={handleChange}
                                 placeholder="ACCESS_KEY"
                                 className="w-full bg-black border border-zinc-800 p-3 pl-10 text-emerald-500 font-mono text-xs focus:outline-none focus:border-emerald-500 transition-all"
                             />
