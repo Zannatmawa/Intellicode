@@ -1,14 +1,5 @@
 "use server";
-type Course = {
-    _id: string;
-    title: string;
-    description: string;
-    image: string;
-    level?: string;
-    price?: string;
-    category?: string;
-    tags?: string[];
-};
+
 import { collections, dbConnect } from '../../lib/dbConnect';
 // import { collections, dbConnect } from '@/app/lib/db';
 import { ObjectId } from 'mongodb';
@@ -18,7 +9,7 @@ export const getProducts = async () => {
     return courses;
 }
 
-export const getSingleCourse = async (id: string) => {
+export const getSingleCourse = async (id) => {
     try {
         if (!id || id.length !== 24) {
             return null;
@@ -31,7 +22,7 @@ export const getSingleCourse = async (id: string) => {
         return {
             ...courses,
             _id: courses._id.toString(),
-        } as Course;
+        };
     } catch (error) {
         console.error("Error fetching course:", error);
         return null;

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { User, Mail, Lock, ChevronRight } from "lucide-react";
 // import { signIn } from "next-auth/react"; // 1. Import signIn
 import { useRouter } from "next/navigation"; // 2. Import router for redirect
-import { postUser } from '@/actions/server/auth';
+import { postUser } from '../../actions/server/auth';
 
 export default function SimpleRegister() {
     const [loading, setLoading] = useState(false);
@@ -17,10 +17,10 @@ export default function SimpleRegister() {
         password: ""
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
-    const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
         const result = await postUser(form);
         if (result?.acknowledged) {

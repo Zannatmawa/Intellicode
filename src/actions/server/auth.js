@@ -1,20 +1,8 @@
 "use server";
-type UserPayload = {
-    name: string;
-    email: string;
-    password: string;
-};
-type LoginPayload = {
-    email: string;
-    password: string;
-};
-
-
-
 import { collections, dbConnect } from "../../lib/dbConnect";
 import bcrypt from "bcryptjs";
 
-export const postUser = async (payload: UserPayload) => {
+export const postUser = async (payload) => {
     try {
         const { name, email, password } = payload;
 
@@ -57,7 +45,7 @@ export const postUser = async (payload: UserPayload) => {
     }
 };
 
-export const loginUser = async (payload: LoginPayload) => {
+export const loginUser = async (payload) => {
     const { email, password } = payload;
     if (!email || !password) return null;
 

@@ -8,9 +8,9 @@ export default function Navbar() {
         <li className="menu-title text-zinc-500 font-mono text-[10px] uppercase tracking-widest">Navigation</li>
         <li><Link href="/" className="text-zinc-300 hover:text-emerald-400">Home</Link></li>
         <li><Link href="/courses" className="text-zinc-300 hover:text-emerald-400">Courses</Link></li>
-        <li><Link href="/explore" className="text-zinc-300 hover:text-emerald-400">Explore</Link></li>
         <li><Link href="/about" className="text-zinc-300 hover:text-emerald-400">About</Link></li>
         <li><Link href="/blog" className="text-zinc-300 hover:text-emerald-400">Blog</Link></li>
+        <li><Link href="/contact" className="text-zinc-300 hover:text-emerald-400">Contact</Link></li>
         <li><Link href="/dashboard" className="text-zinc-300 hover:text-emerald-400 text-emerald-400 font-bold">Dashboard</Link></li>
     </>
     return (
@@ -45,9 +45,9 @@ export default function Navbar() {
                         {[
                             { name: "Home", path: "/" },
                             { name: "Courses", path: "/courses" },
-                            { name: "Explore", path: "/explore" },
                             { name: "About", path: "/about" },
                             { name: "Blog", path: "/blog" },
+                            { name: "Contact", path: "/contact" },
                             { name: "Dashboard", path: "/dashboard" },
                         ].map((link) => (
                             <li key={link.name}>

@@ -1,15 +1,8 @@
 import React from 'react';
 import { Terminal, ShieldCheck, Zap, Users, Cloud, HardDrive } from "lucide-react";
 
-interface Service {
-    id: string;
-    title: string;
-    description: string;
-    icon: React.ReactNode;
-    status: "STABLE" | "BETA" | "LEGACY";
-}
 
-const services: Service[] = [
+const services = [
     {
         id: "SRV-01",
         title: "Managed Learning Paths",

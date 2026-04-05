@@ -12,7 +12,7 @@ export const AboutSection = () => {
                         <div className="inline-block px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-500 text-[10px] font-mono mb-6 uppercase tracking-widest">
                             Establishing_Connection... Success
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 italic uppercase">
+                        <h2 className="text-5xl md:text-5xl font-black text-white tracking-tighter mb-6 italic uppercase">
                             The <span className="text-emerald-500 text-glow">IntelliCode</span> Manifest.
                         </h2>
                         <p className="text-zinc-400 leading-relaxed mb-8 font-medium">

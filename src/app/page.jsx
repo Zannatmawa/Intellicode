@@ -7,6 +7,7 @@ import MissionSection from "../components/home/OurMission";
 import ServicesSection from "../components/home/Services";
 import SuccessSection from "../components/home/SuccessStory";
 import { FAQAndNewsletter } from "../components/home/Faq";
+import HomeCourses from "../components/home/HomeCourses";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <GlassStatsBar />
       </section>
       <section>
-        <CourseSection />
+        <HomeCourses />
       </section>
       <section>
         <SuccessSection />

@@ -1,26 +1,13 @@
 "use client";
-type Course = {
-    _id: string;        // frontend uses `id`
-    title: string;
-    image: string;
-    price: number;
-    level?: string;
-    description?: string;
-    discount?: number;
-    ratings?: number;
-    reviews?: number;
-    sold?: number;
-};
+
 import Image from "next/image";
 import Link from "next/link";
 import { PlayCircle, ArrowRight } from "lucide-react";
 import CardBtn from "../buttons/CardBtn";
 
-type Props = {
-    course: Course;
-};
 
-const CourseCard: React.FC<Props> = ({ course }) => {
+
+const CourseCard = ({ course }) => {
     const {
         _id,
         title,
@@ -79,9 +66,7 @@ const CourseCard: React.FC<Props> = ({ course }) => {
 
                 {/* Buttons Stack */}
                 <div className="flex flex-col gap-2 mt-auto">
-                    <div className="w-full">
-                        <CardBtn course={course} />
-                    </div>
+
 
                     <Link
                         href={`/courses/${_id}`}

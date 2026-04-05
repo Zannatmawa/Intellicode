@@ -4,34 +4,38 @@ import { Lock, Mail, Terminal, ChevronRight } from "lucide-react";
 import Link from 'next/link';
 import { signIn } from 'next-auth/react';
 import Swal from 'sweetalert2';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import SocialButton from '../../components/SocialButton';
 
 export default function SimpleLogin() {
+    const params = useSearchParams()
     const router = useRouter()
     const [form, setForm] = useState({
         email: "",
         password: ""
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
-    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
         const result = await signIn('credentials', {
+            redirect: false,
             email: form.email,
             password: form.password,
-            redirect: false
+            callbackUrl: params.get("callbackUrl") || "/"
         });
-        if (!result?.error) {
-            Swal.fire("error", "Email or password not matched", "error")
+
+        if (result?.error) {
+            Swal.fire("Error", "Email or password not matched", "error");
+        } else {
+            Swal.fire("Success", "Welcome to Intellicode").then(() => {
+                router.push(result.url || "/");
+            });
         }
-        else {
-            Swal.fire("Success", "Welcome to intellicode")
-            router.push("/")
-        }
-    }
+    };
     return (
         <div className="min-h-screen bg-[#09090B] flex items-center justify-center p-4">
             {/* Background Glow */}
@@ -80,9 +84,7 @@ export default function SimpleLogin() {
                     <button className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-transform active:scale-95">
                         Execute_Login <ChevronRight size={16} />
                     </button>
-                    <button className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-transform active:scale-95">
-                        Sign in with Google <ChevronRight size={16} />
-                    </button>
+
                     <button className="text-zinc-600 font-mono text-[10px] hover:text-emerald-500 transition-colors uppercase tracking-tight">
                         New user?
                         <Link href="/register">
@@ -91,7 +93,7 @@ export default function SimpleLogin() {
                     </button>
 
                 </form>
-
+                {/* <SocialButton /> */}
                 <div className="mt-8 pt-6 border-t border-zinc-900 text-center">
                     <a href="#" className="text-zinc-600 font-mono text-[10px] hover:text-emerald-500 transition-colors uppercase tracking-tight">
                         Forgot_Credentials?

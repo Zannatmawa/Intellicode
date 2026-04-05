@@ -3,16 +3,8 @@ import Link from 'next/link'
 import React from 'react'
 import { Globe, Smartphone, Cpu, ChevronRight, ArrowUpRight, Command, PlayCircle } from "lucide-react";
 import { usePathname, useRouter } from 'next/navigation';
-type CourseProps = {
-    course: {
-        _id: string;
-        title?: string;
-        price?: string | number;
-        // Add any other properties your course has
-    };
-};
 
-const CardBtn: React.FC<CourseProps> = ({ course }) => {
+const CardBtn = ({ course }) => {
     const isLogin = false;
     const router = useRouter();
     const path = usePathname();
