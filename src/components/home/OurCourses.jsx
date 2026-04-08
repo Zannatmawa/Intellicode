@@ -3,7 +3,10 @@ import CourseCard from "../cards/CourseCard";
 
 const OurCourses = async () => {
     const courses = (await getProducts() || []);
-
+    const plainCourses = courses.map(course => ({
+        ...course,
+        id: course._id?.toString(),
+    }));
     return (
         <div className="bg-[#0A0A0A] min-h-screen py-20 px-6">
             <div className="max-w-7xl mx-auto">
@@ -54,7 +57,7 @@ const OurCourses = async () => {
                 </div>
 
                 {/* Course Grid */}
-                {courses.length > 0 ? (
+                {plainCourses.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {courses.map(course => (
                             <CourseCard course={course} key={course.id || course._id} />

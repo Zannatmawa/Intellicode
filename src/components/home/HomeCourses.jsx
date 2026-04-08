@@ -4,7 +4,11 @@ import Link from "next/link";
 
 const HomeCourses = async () => {
     const courses = (await getProducts() || []);
-    const featuredCourses = courses.slice(0, 4);
+    const plainCourses = courses.map(course => ({
+        ...course,
+        id: course._id?.toString(),
+    }));
+    const allCourses = plainCourses.slice(0, 4);
 
     return (
         <section className="bg-[#09090B] py-24 px-6 border-t border-white/5">
@@ -28,9 +32,9 @@ const HomeCourses = async () => {
                 </div>
 
                 {/* Grid Container */}
-                {featuredCourses.length > 0 ? (
+                {allCourses.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {featuredCourses.map(course => (
+                        {allCourses.map(course => (
                             <CourseCard
                                 course={course}
                                 key={course.id || course._id}

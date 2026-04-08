@@ -1,13 +1,34 @@
 "use client";
 
-import { SessionProvider } from "next-auth/react";
+import { SessionProvider, useSession } from "next-auth/react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-const NextAuthprovider = ({ children }) => {
+
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+    const { data: session, status } = useSession();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        setIsLoggedIn(status === "authenticated");
+    }, [status]);
+
+    return (
+        <AuthContext.Provider value={{ isLoggedIn, session }}>
+            {children}
+        </AuthContext.Provider>
+    );
+};
+
+export const useAuth = () => useContext(AuthContext);
+
+const NextAuthProvider = ({ children }) => {
     return (
         <SessionProvider>
-            {children}
+            <AuthProvider>{children}</AuthProvider>
         </SessionProvider>
     );
 };
 
-export default NextAuthprovider;
+export default NextAuthProvider;

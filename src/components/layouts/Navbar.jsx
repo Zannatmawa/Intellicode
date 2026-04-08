@@ -1,9 +1,12 @@
+"use client"
 import Link from "next/link";
 import Logo from "./Logo";
-import { Menu, X, Terminal } from "lucide-react"; // Using Lucide for the mobile toggle
+import { Menu, X, Terminal } from "lucide-react";
 import AuthBtn from "../buttons/AuthBtn";
+import { useAuth } from "../../provider/NextAuthprovider";
 
 export default function Navbar() {
+    const { isLoggedIn } = useAuth();
     const links = <>
         <li className="menu-title text-zinc-500 font-mono text-[10px] uppercase tracking-widest">Navigation</li>
         <li><Link href="/" className="text-zinc-300 hover:text-emerald-400">Home</Link></li>
@@ -11,7 +14,8 @@ export default function Navbar() {
         <li><Link href="/about" className="text-zinc-300 hover:text-emerald-400">About</Link></li>
         <li><Link href="/blog" className="text-zinc-300 hover:text-emerald-400">Blog</Link></li>
         <li><Link href="/contact" className="text-zinc-300 hover:text-emerald-400">Contact</Link></li>
-        <li><Link href="/dashboard" className="text-zinc-300 hover:text-emerald-400 text-emerald-400 font-bold">Dashboard</Link></li>
+        {/* {!isLoggedIn && <Link href="/login">Login</Link>} */}
+
     </>
     return (
         <nav className="sticky top-0 z-[100] w-full border-b border-zinc-800 bg-[#09090B]/80 backdrop-blur-md">
@@ -48,7 +52,6 @@ export default function Navbar() {
                             { name: "About", path: "/about" },
                             { name: "Blog", path: "/blog" },
                             { name: "Contact", path: "/contact" },
-                            { name: "Dashboard", path: "/dashboard" },
                         ].map((link) => (
                             <li key={link.name}>
                                 <Link
@@ -67,13 +70,17 @@ export default function Navbar() {
                 {/* Navbar End: Auth Actions */}
                 <div className="flex items-center gap-3">
                     <AuthBtn />
-                    <Link
-                        href="/auth/signup"
-                        className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2 rounded-md text-sm font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center gap-2"
-                    >
-                        <Terminal size={14} />
-                        Get Started
-                    </Link>
+                    {isLoggedIn &&
+                        <Link
+                            href="/dashboard"
+                            className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2 rounded-md text-sm font-bold transition-all shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center gap-2"
+                        >
+                            <Terminal size={14} />
+                            Dashboard
+                        </Link>
+                    }
+
+
                 </div>
             </div>
         </nav>
